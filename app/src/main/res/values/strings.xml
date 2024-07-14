@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CathyDa_COMP304Lab3_Exercise1</string>
+
+    <string name="login_header_text">Login</string>
+    <string name="login_userId_text">User ID:</string>
+    <string name="login_password_text">Password: </string>
 </resources>

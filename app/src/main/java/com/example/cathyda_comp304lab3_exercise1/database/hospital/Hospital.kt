@@ -109,6 +109,5 @@ data class TestListModel(
 )
 
 data class NurseListModel(
-    val nurseId: Int?,
     @ColumnInfo("nurse_password") val password: String
 )
