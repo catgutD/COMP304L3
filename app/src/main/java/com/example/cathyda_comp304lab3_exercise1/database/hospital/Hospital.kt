@@ -1,6 +1,5 @@
 package com.example.cathyda_comp304lab3_exercise1.database.hospital
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
@@ -8,8 +7,8 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import androidx.room.Relation
 
-@Entity
-data class Patient(
+@Entity(tableName = "patient")
+data class PatientEntity(
     @PrimaryKey val patientId: Int,
     @ColumnInfo("patient_first_name") val firstName: String,
     @ColumnInfo("patient_last_name") val lastName: String,
@@ -18,8 +17,8 @@ data class Patient(
     @ColumnInfo("patient_room") val room: Int
 )
 
-@Entity
-data class Test(
+@Entity(tableName = "test")
+data class TestEntity(
     @PrimaryKey val testId: Int,
     @ColumnInfo("test_patient_id") val patientId: Int,
     @ColumnInfo("test_nurse_id") val nurseId: Int,
@@ -32,8 +31,8 @@ data class Test(
     @ColumnInfo("oxygen_saturation_level") val oxygenSaturationLevel: Int
 )
 
-@Entity
-data class Nurse(
+@Entity(tableName = "nurse")
+data class NurseEntity(
     @PrimaryKey val nurseId: Int,
     @ColumnInfo("nurse_first_name") val firstName: String,
     @ColumnInfo("nurse_last_name") val lastName: String,
@@ -45,13 +44,13 @@ data class Nurse(
 @Entity(
     foreignKeys = [
         ForeignKey(
-            entity = Nurse::class,
+            entity = NurseEntity::class,
             parentColumns = arrayOf("nurseId"),
             childColumns = arrayOf("nurseId"),
             onUpdate = ForeignKey.CASCADE
         ),
         ForeignKey(
-            entity = Patient::class,
+            entity = PatientEntity::class,
             parentColumns = arrayOf("patientId"),
             childColumns = arrayOf("patientId"),
             onUpdate = ForeignKey.CASCADE
@@ -61,28 +60,55 @@ data class Nurse(
 
 //Embedding for efficient querying
 data class NurseForPatient(
-    @Embedded val nurse: Nurse,
+    @Embedded val nurseEntity: NurseEntity,
     @Relation(
         parentColumn = "nurseId",
         entityColumn = "nurseId"
     )
-    val patient: List<Patient>
+    val patientEntity: List<PatientEntity>
 )
 
 data class NurseForTest(
-    @Embedded val nurse: Nurse,
+    @Embedded val nurseEntity: NurseEntity,
     @Relation(
         parentColumn = "nurseId",
         entityColumn = "nurseId"
     )
-    val test: List<Test>
+    val testEntity: List<TestEntity>
 )
 
 data class PatientForTest(
-    @Embedded val patient: Patient,
+    @Embedded val patientEntity: PatientEntity,
     @Relation(
         parentColumn = "patientId",
         entityColumn = "patientId"
     )
-    val test: List<Test>
+    val testEntity: List<TestEntity>
+)
+
+//Subset tables for subset queries
+data class PatientListModel(
+    @ColumnInfo("patient_first_name") val firstName: String,
+    @ColumnInfo("patient_last_name") val lastName: String,
+    @ColumnInfo("patient_department") val department: String?,
+    @ColumnInfo("patient_room") val room: Int?
+)
+
+data class TestListModel(
+    @ColumnInfo("patient_first_name") val patientFirstName: String,
+    @ColumnInfo("patient_last_name") val patientLastName: String,
+    @ColumnInfo("nurse_first_name") val nurseFirstName: String,
+    @ColumnInfo("nurse_last_name") val nurseLastName: String,
+    @ColumnInfo("BPL") val BPL: Int,
+    @ColumnInfo("BPH") val BPH: Int,
+    @ColumnInfo("temperature") val temperature: Int,
+    @ColumnInfo("weight") val weight: Int,
+    @ColumnInfo("blood_glucose") val bloodGlucose: Int,
+    @ColumnInfo("BPM") val BPM: Int,
+    @ColumnInfo("oxygen_saturation_level") val oxygenSaturationLevel: Int
+)
+
+data class NurseListModel(
+    val nurseId: Int?,
+    @ColumnInfo("nurse_password") val password: String
 )

@@ -13,7 +13,7 @@ interface HospitalDao {
     @Query("SELECT patient_first_name, patient_last_name, patient_department, patient_room " +
             "FROM patient " +
             "WHERE patientId = :patientId")
-    fun getPatientInfo(patientId: Int): Flow<Patient>
+    fun getPatientInfo(patientId: Int): Flow<PatientListModel>
 
     @Query("SELECT pat.patient_first_name, " +
             "pat.patient_last_name, " +
@@ -30,22 +30,22 @@ interface HospitalDao {
             "patient AS pat ON pat.patientId = tst.test_patient_id INNER JOIN " +
             "nurse as nrs on nrs.nurseId = tst.test_nurse_id " +
             "WHERE testId = :testId")
-    fun getTestInfo(testId: Int): Flow<Test>
+    fun getTestInfo(testId: Int): Flow<TestListModel>
 
     @Query("SELECT patient_first_name, patient_last_name FROM patient WHERE patient_nurse_id = :nurseId")
-    fun getPatientName(nurseId: Int): Flow<List<Patient>>
+    fun getPatientName(nurseId: Int): Flow<List<PatientListModel>>
 
     @Query("SELECT nurse_password FROM nurse WHERE nurseId = :nurseId")
-    fun getNursePassword(nurseId: Int): Flow<Nurse>
+    fun getNursePassword(nurseId: Int): Flow<NurseListModel>
 
     //Update
     @Update
-    fun updatePatient(vararg patient: Patient)
+    fun updatePatient(vararg patientEntity: PatientEntity)
 
     //Insert
     @Insert
-    fun insertNewPatient(vararg patient: Patient)
+    fun insertNewPatient(vararg patientEntity: PatientEntity)
 
     @Insert
-    fun insertNewTest(vararg test: Test)
+    fun insertNewTest(vararg testEntity: TestEntity)
 }
