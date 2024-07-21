@@ -1,7 +1,31 @@
 <resources>
     <string name="app_name">CathyDa_COMP304Lab3_Exercise1</string>
 
+    <!--Menu-->
+    <string name="view_patient_text">View Patients</string>
+    <string name="new_patient_text">Add Patient</string>
+
+    <!--Login Page-->
     <string name="login_header_text">Login</string>
     <string name="login_userId_text">User ID:</string>
     <string name="login_password_text">Password: </string>
+    <string name="login_button">Login</string>
+
+    <!--Test Info-->
+    <string name="patient_name_text">Patient:</string>
+    <string name="nurse_name_text">Nurse:</string>
+    <string name="BPL_text">BPL:</string>
+    <string name="BPL_units_text">mm Hg</string>
+    <string name="BPH_text">BPH:</string>
+    <string name="temperature_text">Temperature:</string>
+    <string name="temperature_units_text">C</string>
+    <string name="weight_text">Weight:</string>
+    <string name="weight_units_text">lbs</string>
+    <string name="blood_glucose_text">Blood Glucose:</string>
+    <string name="blood_glucose_units_text">mmol/L</string>
+    <string name="BPM_text">BPM:</string>
+    <string name="BPM_unit_text">BPM</string>
+    <string name="oxygen_saturation_level_text">Oxygen Saturation:</string>
+    <string name="oxygen_saturation_level_unit_text">%</string>
+
 </resources>
