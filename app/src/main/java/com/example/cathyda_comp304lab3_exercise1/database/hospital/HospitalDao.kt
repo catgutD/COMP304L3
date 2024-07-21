@@ -32,7 +32,7 @@ interface HospitalDao {
             "WHERE testId = :testId")
     fun getTestInfo(testId: Int): Flow<TestListModel>
 
-    @Query("SELECT patient_first_name, patient_last_name FROM patient WHERE patient_nurse_id = :nurseId")
+    @Query("SELECT patient_first_name, patient_last_name, patient_room FROM patient WHERE patient_nurse_id = :nurseId")
     fun getPatientName(nurseId: Int): Flow<List<PatientListModel>>
 
     @Query("SELECT nurse_password FROM nurse WHERE nurseId = :nurseId")

@@ -13,7 +13,13 @@
     <string name="login_password_text">Password: </string>
     <string name="login_button">Login</string>
 
-    <!--Test Info-->
+    <!--Patient-->
+    <string name="patient_first_name_text">Patient First Name:</string>
+    <string name="patient_last_name_text">Patient Last Name:</string>
+    <string name="patient_department_text">Department:</string>
+    <string name="patient_room_text">Room:</string>
+
+    <!--Test-->
     <string name="patient_name_text">Patient:</string>
     <string name="nurse_name_text">Nurse:</string>
     <string name="BPL_text">BPL:</string>
