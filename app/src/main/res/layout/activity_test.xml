@@ -1,6 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtTestHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/new_test_header"
+        android:textSize="@dimen/header_font_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:layout_width="405dp"
+        android:layout_height="406dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="151dp">
+
+        <TableRow
+            android:id="@+id/rowNewPatient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewPatient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_name_text" />
+
+            <EditText
+                android:id="@+id/txtInputPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:contextClickable="false"
+                android:editable="false"
+                android:ems="10"
+                android:inputType="none" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewNurse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewNurse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nurse_name_text" />
+
+            <EditText
+                android:id="@+id/txtInputNurse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:contextClickable="false"
+                android:editable="false"
+                android:ems="10"
+                android:inputType="none" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewBPL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewBPL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/BPL_text" />
+
+            <EditText
+                android:id="@+id/txtInputBPL"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/txtNewBPLUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/BPL_units_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewBPH"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewBPH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/BPH_text" />
+
+            <EditText
+                android:id="@+id/txtInputBPH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewTemperature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_text" />
+
+            <EditText
+                android:id="@+id/txtInputTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/txtNewTemperatureUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_units_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewWeight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_text" />
+
+            <EditText
+                android:id="@+id/txtInputWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/txtNewWeightUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weight_units_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewBloodGlucose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewBloodGlucose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blood_glucose_text" />
+
+            <EditText
+                android:id="@+id/txtInputBloodGlucose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/txtNewBloodGlucoseUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blood_glucose_units_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewBPM"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewBPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/BPM_text" />
+
+            <EditText
+                android:id="@+id/txtInputBPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/txtNewBPMUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/BPM_unit_text" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewOxygenSaturationLevel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewOxygenSaturationLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oxygen_saturation_level_text" />
+
+            <EditText
+                android:id="@+id/txtInputOxygenSaturationLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/txtNewOxygenSaturationLevelUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oxygen_saturation_level_unit_text" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="599dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

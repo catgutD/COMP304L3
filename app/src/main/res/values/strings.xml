@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CathyDa_COMP304Lab3_Exercise1</string>
 
+    <string name="submit_button">Submit</string>
+
     <!--Menu-->
     <string name="view_patient_text">View Patients</string>
     <string name="new_patient_text">Add Patient</string>
@@ -27,5 +29,7 @@
     <string name="BPM_unit_text">BPM</string>
     <string name="oxygen_saturation_level_text">Oxygen Saturation:</string>
     <string name="oxygen_saturation_level_unit_text">%</string>
+
+    <string name="new_test_header">New Test</string>
 
 </resources>
