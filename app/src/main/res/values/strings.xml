@@ -18,6 +18,12 @@
     <string name="patient_last_name_text">Patient Last Name:</string>
     <string name="patient_department_text">Department:</string>
     <string name="patient_room_text">Room:</string>
+    <string name="view_patient_button">View Patient</string>
+    <string name="new_patient_button">Add Patient</string>
+
+    <string name="view_tests_button">View Tests</string>
+    <string name="update_patient_button">Update</string>
+    <string name="new_test_button">New Test</string>
 
     <!--Test-->
     <string name="patient_name_text">Patient:</string>

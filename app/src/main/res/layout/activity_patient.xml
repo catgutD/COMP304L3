@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/recyclerView"
+        android:layout_width="395dp"
+        android:layout_height="674dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnViewPatient"
+        tools:layout_editor_absoluteX="0dp" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="com.example.cathyda_comp304lab3_exercise1.NewPatientFragment"
-        android:layout_width="410dp"
-        android:layout_height="333dp"
+        android:layout_width="393dp"
+        android:layout_height="343dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="395dp"
         tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnViewPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_patient_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="692dp" />
+
+    <Button
+        android:id="@+id/btnNewPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="@string/new_patient_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnViewPatient"
+        tools:layout_editor_absoluteY="692dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
