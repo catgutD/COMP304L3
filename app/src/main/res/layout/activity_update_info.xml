@@ -6,10 +6,15 @@
     android:layout_height="match_parent">
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="390dp"
         android:layout_height="298dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="202dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="202dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:id="@+id/rowPatientFirstName"
@@ -117,26 +122,35 @@
         android:id="@+id/btnNewTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/new_test_button"
-        tools:layout_editor_absoluteX="271dp"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnViewTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
 
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="14dp"
         android:text="@string/update_patient_button"
-        app:layout_constraintEnd_toStartOf="@+id/btnNewTest"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnNewTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
     <Button
         android:id="@+id/btnViewTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/view_tests_button"
-        app:layout_constraintEnd_toStartOf="@+id/btnUpdate"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewTest" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

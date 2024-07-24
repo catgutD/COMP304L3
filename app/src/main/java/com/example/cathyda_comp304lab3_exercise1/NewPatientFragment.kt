@@ -14,7 +14,6 @@ class NewPatientFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_new_patient, container, false)
         return view
-
     }
 
 }
