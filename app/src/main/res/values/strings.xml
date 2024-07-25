@@ -21,6 +21,8 @@
     <string name="view_patient_button">View Patient</string>
     <string name="new_patient_button">Add Patient</string>
 
+    <string name="add_button">Add</string>
+
     <string name="view_tests_button">View Tests</string>
     <string name="update_patient_button">Update</string>
     <string name="new_test_button">New Test</string>

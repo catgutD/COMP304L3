@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/frgNewPatient"
         android:name="com.example.cathyda_comp304lab3_exercise1.NewPatientFragment"
         android:layout_width="411dp"
         android:layout_height="340dp"
@@ -29,20 +29,22 @@
         android:id="@+id/btnViewPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/view_patient_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.155"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnNewPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/new_patient_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toEndOf="@+id/btnViewPatient"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintStart_toEndOf="@+id/btnViewPatient" />
 </androidx.constraintlayout.widget.ConstraintLayout>
