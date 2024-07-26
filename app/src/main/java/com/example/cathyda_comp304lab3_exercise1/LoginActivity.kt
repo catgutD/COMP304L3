@@ -13,7 +13,13 @@ class LoginActivity : AppCompatActivity() {
 
         val btnLogin: Button = findViewById<View>(R.id.btnLogin) as Button
         btnLogin.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, PatientActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnCreateNew: Button = findViewById<View>(R.id.btnCreate) as Button
+        btnCreateNew.setOnClickListener {
+            val intent = Intent(this, NewNurseActivity::class.java)
             startActivity(intent)
         }
     }

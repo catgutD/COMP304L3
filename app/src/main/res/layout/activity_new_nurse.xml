@@ -2,124 +2,126 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".NewNurseActivity">
 
     <TableLayout
-        android:id="@+id/tableLayout3"
-        android:layout_width="387dp"
-        android:layout_height="238dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp">
+        android:id="@+id/tableLayout4"
+        android:layout_width="353dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="205dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateNurse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:id="@+id/rowNewPatientFirstName"
+            android:id="@+id/rowNurseID"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtNewPatientFirstName"
-                android:layout_width="144dp"
+                android:id="@+id/txtNurseID"
+                android:layout_width="97dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nurse_id_text" />
+
+            <EditText
+                android:id="@+id/txtInputNurseID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewNurseFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewNurseFirstName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/first_name_text" />
 
             <EditText
-                android:id="@+id/txtInputNewPatientFirstName"
+                android:id="@+id/txtInputNewNurseFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text" />
         </TableRow>
 
         <TableRow
-            android:id="@+id/rowNewPatientLastName"
+            android:id="@+id/rowNewNurseLastName"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtNewPatientLastName"
+                android:id="@+id/txtNewNurseLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/last_name_text" />
 
             <EditText
-                android:id="@+id/txtInputNewPatientLastName"
+                android:id="@+id/txtInputNewNurseLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text" />
         </TableRow>
 
         <TableRow
-            android:id="@+id/rowNewNurseName"
+            android:id="@+id/rowNewNurseDepartment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtNewNurseName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nurse_name_text" />
-
-            <EditText
-                android:id="@+id/txtInputNewNurseName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/rowNewRoom"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtNewRoom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/patient_room_text" />
-
-            <EditText
-                android:id="@+id/txtInputNewRoom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/rowNewDepartment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtNewDepartment"
+                android:id="@+id/txtNewNurseDepartment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/department_text" />
 
             <EditText
-                android:id="@+id/txtInputNewDepartment"
+                android:id="@+id/txtInputNewNurseDepartment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/rowNewNursePassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtNewNursePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password_text" />
+
+            <EditText
+                android:id="@+id/txtInputNewNursePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+
         </TableRow>
     </TableLayout>
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnCreateNurse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/add_button"
+        android:layout_marginBottom="220dp"
+        android:text="@string/create_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

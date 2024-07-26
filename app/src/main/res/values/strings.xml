@@ -2,26 +2,32 @@
     <string name="app_name">CathyDa_COMP304Lab3_Exercise1</string>
 
     <string name="submit_button">Submit</string>
+    <string name="add_button">Add</string>
+
+
+    <string name="first_name_text">First Name:</string>
+    <string name="last_name_text">Last Name:</string>
+    <string name="department_text">Department:</string>
+
+    <string name="userId_text">User ID:</string>
+    <string name="password_text">Password: </string>
 
     <!--Menu-->
     <string name="view_patient_text">View Patients</string>
     <string name="new_patient_text">Add Patient</string>
 
+    <!--New Nurse-->
+    <string name="create_button">Create Account</string>
+    <string name="nurse_id_text">Nurse ID:</string>
+
     <!--Login Page-->
-    <string name="login_header_text">Login</string>
-    <string name="login_userId_text">User ID:</string>
-    <string name="login_password_text">Password: </string>
-    <string name="login_button">Login</string>
+    <string name="login_text">Login</string>
+    <string name="no_account_text">No account?</string>
 
     <!--Patient-->
-    <string name="patient_first_name_text">Patient First Name:</string>
-    <string name="patient_last_name_text">Patient Last Name:</string>
-    <string name="patient_department_text">Department:</string>
     <string name="patient_room_text">Room:</string>
     <string name="view_patient_button">View Patient</string>
     <string name="new_patient_button">Add Patient</string>
-
-    <string name="add_button">Add</string>
 
     <string name="view_tests_button">View Tests</string>
     <string name="update_patient_button">Update</string>
