@@ -10,13 +10,13 @@ import kotlinx.coroutines.flow.Flow
 
 class HospitalViewModel(private val hospitalDao: HospitalDao): ViewModel() {
 
-    fun patientInfo(patientId: Int): Flow<PatientListModel> = hospitalDao.getPatientInfo(patientId);
+    fun patientInfo(patientId: Int): Flow<PatientListModel> = hospitalDao.getPatientInfo(patientId)
 
     fun testInfo(testId: Int): Flow<TestListModel> = hospitalDao.getTestInfo(testId)
 
-    fun patientNames(nurseId: Int): Flow<List<PatientListModel>> = hospitalDao.getPatientName(nurseId)
+    fun patientNames(nurseId: String): Flow<List<PatientListModel>> = hospitalDao.getPatientName(nurseId)
 
-    fun checkNursePassword(nurseId: Int): Flow<NurseListModel> = hospitalDao.getNursePassword(nurseId)
+    fun checkNursePassword(nurseId: String): Flow<NurseListModel> = hospitalDao.getNursePassword(nurseId)
 }
 
 class HospitalViewModelFactory(

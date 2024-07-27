@@ -13,7 +13,7 @@ data class PatientEntity(
     @ColumnInfo("patient_first_name") val firstName: String,
     @ColumnInfo("patient_last_name") val lastName: String,
     @ColumnInfo("patient_department") val department: String,
-    @ColumnInfo("patient_nurse_id") val nurseId: Int,
+    @ColumnInfo("patient_nurse_id") val nurseId: String,
     @ColumnInfo("patient_room") val room: Int
 )
 
@@ -21,7 +21,7 @@ data class PatientEntity(
 data class TestEntity(
     @PrimaryKey val testId: Int,
     @ColumnInfo("test_patient_id") val patientId: Int,
-    @ColumnInfo("test_nurse_id") val nurseId: Int,
+    @ColumnInfo("test_nurse_id") val nurseId: String,
     @ColumnInfo("BPL") val BPL: Int,
     @ColumnInfo("BPH") val BPH: Int,
     @ColumnInfo("temperature") val temperature: Int,
@@ -33,7 +33,7 @@ data class TestEntity(
 
 @Entity(tableName = "nurse")
 data class NurseEntity(
-    @PrimaryKey val nurseId: Int,
+    @PrimaryKey val nurseId: String,
     @ColumnInfo("nurse_first_name") val firstName: String,
     @ColumnInfo("nurse_last_name") val lastName: String,
     @ColumnInfo("nurse_department") val department: String,

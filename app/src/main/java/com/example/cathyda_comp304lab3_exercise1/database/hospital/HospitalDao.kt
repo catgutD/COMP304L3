@@ -33,10 +33,10 @@ interface HospitalDao {
     fun getTestInfo(testId: Int): Flow<TestListModel>
 
     @Query("SELECT patient_first_name, patient_last_name, patient_room FROM patient WHERE patient_nurse_id = :nurseId")
-    fun getPatientName(nurseId: Int): Flow<List<PatientListModel>>
+    fun getPatientName(nurseId: String): Flow<List<PatientListModel>>
 
     @Query("SELECT nurse_password FROM nurse WHERE nurseId = :nurseId")
-    fun getNursePassword(nurseId: Int): Flow<NurseListModel>
+    fun getNursePassword(nurseId: String): Flow<NurseListModel>
 
     //Update
     @Update
@@ -48,4 +48,7 @@ interface HospitalDao {
 
     @Insert
     fun insertNewTest(vararg testEntity: TestEntity)
+
+    @Insert
+    fun insertNewNurse(vararg nurseEntity: NurseEntity)
 }
