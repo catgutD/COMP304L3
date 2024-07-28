@@ -46,7 +46,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
             var nursePassword: String = ""
 
             lifecycle.coroutineScope.launch {
-                viewModel.checkNursePassword(binding.txtInputUserId.text.toString()).collect(){
+                viewModel.checkNursePassword(binding.txtInputUserId.text.toString()).collect {
                     nursePassword = it.toString()
                 }
             }

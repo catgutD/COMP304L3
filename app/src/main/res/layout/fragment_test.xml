@@ -43,7 +43,6 @@
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:contextClickable="false"
-                android:editable="false"
                 android:ems="10"
                 android:inputType="none" />
         </TableRow>
@@ -65,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:contextClickable="false"
-                android:editable="false"
                 android:ems="10"
                 android:inputType="none" />
         </TableRow>

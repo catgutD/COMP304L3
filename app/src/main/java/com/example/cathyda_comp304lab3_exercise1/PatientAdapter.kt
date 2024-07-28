@@ -51,7 +51,7 @@ class PatientAdapter(
 
     class PatientViewHolder(
         private var binding: PatientBinding
-    ): RecyclerView.ViewHolder(binding.root){
+    ): RecyclerView.ViewHolder(binding.root) {
         fun bind(patientEntity: PatientEntity) {
             binding.txtPatientFirstNameInfo.text = patientEntity.firstName
             binding.txtPatientLastNameInfo.text = patientEntity.lastName

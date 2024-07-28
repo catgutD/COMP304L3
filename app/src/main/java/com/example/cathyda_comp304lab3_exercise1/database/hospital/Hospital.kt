@@ -19,7 +19,7 @@ data class PatientEntity(
 
 @Entity(tableName = "test")
 data class TestEntity(
-    @PrimaryKey val testId: Int,
+    @PrimaryKey(autoGenerate = true) val testId: Int = 1,
     @ColumnInfo("test_patient_id") val patientId: Int,
     @ColumnInfo("test_nurse_id") val nurseId: String,
     @ColumnInfo("BPL") val BPL: Int,

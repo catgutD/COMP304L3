@@ -29,14 +29,18 @@ interface HospitalDao {
             "FROM test AS tst INNER JOIN " +
             "patient AS pat ON pat.patientId = tst.test_patient_id INNER JOIN " +
             "nurse as nrs on nrs.nurseId = tst.test_nurse_id " +
-            "WHERE testId = :testId")
-    fun getTestInfo(testId: Int): Flow<TestListModel>
+            "WHERE test_patient_id = :patientId")
+    fun getTestInfo(patientId: Int): Flow<TestListModel>
 
     @Query("SELECT * FROM patient WHERE patient_nurse_id = :nurseId")
     fun getPatientName(nurseId: String): Flow<List<PatientEntity>>
 
-    @Query("SELECT * FROM nurse WHERE nurseId = :nurseId")
+    @Query("SELECT nurse_password FROM nurse WHERE nurseId = :nurseId")
     fun getNursePassword(nurseId: String): Flow<NurseListModel>
+
+    @Query("SELECT nurse.* FROM nurse INNER JOIN patient on nurse.nurseId = patient_nurse_id WHERE patientId = :patientId")
+    fun getNurseForPatient(patientId: Int): Flow<NurseEntity>
+
 
     //Update
     @Update

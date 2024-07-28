@@ -36,7 +36,7 @@ class NewNurseFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentNewNurseBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
