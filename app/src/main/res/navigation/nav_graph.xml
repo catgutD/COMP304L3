@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_patientFragment_to_updateInfoFragment"
             app:destination="@id/updateInfoFragment" />
+        <argument
+            android:name="nurseId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/updateInfoFragment"
@@ -46,6 +49,9 @@
         <action
             android:id="@+id/action_updateInfoFragment_to_testFragment"
             app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_updateInfoFragment_to_viewTestInfoFragment"
+            app:destination="@id/viewTestInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/testFragment"
@@ -57,5 +63,17 @@
         <argument
             android:name="nurseId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_testFragment_to_viewTestInfoFragment"
+            app:destination="@id/viewTestInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewTestInfoFragment"
+        android:name="com.example.cathyda_comp304lab3_exercise1.ViewTestInfoFragment"
+        android:label="fragment_view_test_info"
+        tools:layout="@layout/fragment_view_test_info" >
+        <argument
+            android:name="patientId"
+            app:argType="integer" />
     </fragment>
 </navigation>

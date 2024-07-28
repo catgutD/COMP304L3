@@ -7,27 +7,30 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentPatientBinding
+import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestListModel
+import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentViewTestInfoBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
 import kotlinx.coroutines.launch
+import kotlin.properties.Delegates
 
-class PatientFragment : Fragment() {
+class ViewTestInfoFragment : Fragment() {
 
     companion object {
-        var NURSE_ID = "nurseId"
+        var PATIENT_ID = 1
     }
 
-    private var _binding: FragmentPatientBinding? = null
+    private var _binding: FragmentViewTestInfoBinding? = null
 
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
 
-    private lateinit var nurseId: String
+    private var patientId by Delegates.notNull<Int>()
+
+    private lateinit var testInfo: List<TestListModel>
 
     private val viewModel: HospitalViewModel by activityViewModels {
         HospitalViewModelFactory(
@@ -39,7 +42,13 @@ class PatientFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            nurseId = it.getString(NURSE_ID).toString()
+            patientId = PATIENT_ID
+        }
+
+        lifecycle.coroutineScope.launch {
+            viewModel.testInfo(patientId).collect{
+                testInfo = it
+            }
         }
     }
 
@@ -48,7 +57,7 @@ class PatientFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPatientBinding.inflate(inflater, container, false)
+        _binding = FragmentViewTestInfoBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -57,35 +66,14 @@ class PatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val patientAdapter = PatientAdapter({
-           val action = PatientFragmentDirections
-               .actionPatientFragmentToUpdateInfoFragment(
-                   patientId = it.patientId,
-                   nurseId = nurseId
-               )
-            view.findNavController().navigate(action)
-        })
+        val testAdapter = TestAdapter(testInfo)
+        recyclerView.adapter = testAdapter
 
-        recyclerView.adapter = patientAdapter
         lifecycle.coroutineScope.launch {
-            viewModel.patientNames(nurseId).collect {
-                patientAdapter.submitList(it)
+            viewModel.testInfo(patientId).collect{
+                testAdapter.submitList(it)
             }
         }
-
-        childFragmentManager.beginTransaction()
-            .replace(R.id.frgNewPatient, NewPatientFragment(nurseId))
-            .commit()
-
-        binding.btnNewPatient.setOnClickListener {
-            binding.btnNewPatient.visibility = View.INVISIBLE
-            binding.frgNewPatient.visibility = View.VISIBLE
-        }
-
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

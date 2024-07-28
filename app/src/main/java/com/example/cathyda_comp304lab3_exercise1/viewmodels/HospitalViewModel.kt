@@ -17,7 +17,7 @@ class HospitalViewModel(private val hospitalDao: HospitalDao): ViewModel() {
 
     fun patientInfo(patientId: Int): Flow<PatientListModel> = hospitalDao.getPatientInfo(patientId)
 
-    fun testInfo(patientId: Int): Flow<TestListModel> = hospitalDao.getTestInfo(patientId)
+    fun testInfo(patientId: Int): Flow<List<TestListModel>> = hospitalDao.getTestInfo(patientId)
 
     fun patientNames(nurseId: String): Flow<List<PatientEntity>> = hospitalDao.getPatientName(nurseId)
 

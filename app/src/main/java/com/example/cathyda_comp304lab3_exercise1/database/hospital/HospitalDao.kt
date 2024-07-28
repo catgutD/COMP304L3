@@ -15,7 +15,8 @@ interface HospitalDao {
             "WHERE patientId = :patientId")
     fun getPatientInfo(patientId: Int): Flow<PatientListModel>
 
-    @Query("SELECT pat.patient_first_name, " +
+    @Query("SELECT tst.testId, " +
+            "pat.patient_first_name, " +
             "pat.patient_last_name, " +
             "nrs.nurse_first_name, " +
             "nrs.nurse_last_name, " +
@@ -30,7 +31,7 @@ interface HospitalDao {
             "patient AS pat ON pat.patientId = tst.test_patient_id INNER JOIN " +
             "nurse as nrs on nrs.nurseId = tst.test_nurse_id " +
             "WHERE test_patient_id = :patientId")
-    fun getTestInfo(patientId: Int): Flow<TestListModel>
+    fun getTestInfo(patientId: Int): Flow<List<TestListModel>>
 
     @Query("SELECT * FROM patient WHERE patient_nurse_id = :nurseId")
     fun getPatientName(nurseId: String): Flow<List<PatientEntity>>

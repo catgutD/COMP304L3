@@ -51,7 +51,7 @@ class UpdateInfoFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentUpdateInfoBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -65,7 +65,7 @@ class UpdateInfoFragment : Fragment() {
                 binding.txtInputUpdatePatientFirstName.setText(it.firstName)
                 binding.txtInputUpdatePatientLastName.setText(it.lastName)
                 it.room?.let { it1 -> binding.txtInputUpdateRoom.setText(it1) }
-                it.department?.let { dep -> binding.txtUpdateDepartment.setText(dep) }
+                it.department?.let { dep -> binding.txtUpdateDepartment.text = dep }
             }
             viewModel.nurseForPatient(patientId).collect {
                 binding.txtInputUpdateNurseName.setText("${it.firstName} ${it.lastName}")
@@ -106,7 +106,11 @@ class UpdateInfoFragment : Fragment() {
         }
 
         binding.btnViewTest.setOnClickListener {
-            //Todo: set it up to the view tests screen
+            val action = UpdateInfoFragmentDirections
+                .actionUpdateInfoFragmentToViewTestInfoFragment(
+                    patientId = patientId
+                )
+            view.findNavController().navigate(action)
         }
 
 
@@ -127,21 +131,4 @@ class UpdateInfoFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-//        val btnViewTest: Button = findViewById<View>(R.id.btnViewTest) as Button
-//        btnViewTest.setOnClickListener {
-//            val intent = Intent(this, ViewTestInfoActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        val btnUpdate: Button = findViewById<View>(R.id.btnUpdate) as Button
-//        btnUpdate.setOnClickListener {
-//
-//        }
-//
-//        val btnNewTest: Button = findViewById<View>(R.id.btnNewTest) as Button
-//        btnNewTest.setOnClickListener {
-//            val intent = Intent(this, TestActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
 }

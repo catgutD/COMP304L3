@@ -19,28 +19,14 @@ import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
 
-    companion object{
-        var NURSE_ID = "nurseID"
-    }
-
     private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
-
-    private lateinit var nurseId: String
 
     private val viewModel: HospitalViewModel by activityViewModels {
         HospitalViewModelFactory(
             (activity?.application as HospitalApplication).database.hospitalDao()
         )
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            nurseId = it.getString(NURSE_ID).toString()
-        }
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,7 +50,11 @@ class LoginFragment : Fragment() {
                 }
             }
             if(nursePassword == binding.txtInputPassword.text.toString()) {
-
+                val action = LoginFragmentDirections
+                    .actionLoginFragmentToPatientFragment(
+                        nurseId = binding.txtInputUserId.text.toString()
+                    )
+                view.findNavController().navigate(action)
             }
             else {
                 Toast.makeText(context, "Incorrect password", Toast.LENGTH_SHORT)
@@ -84,30 +74,4 @@ class LoginFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_login)
-//
-//        //
-//        val db = HospitalDatabase.getDatabase(this)
-//
-//        val btnLogin: Button = findViewById<View>(R.id.btnLogin) as Button
-//        btnLogin.setOnClickListener {
-//
-//            var nursePassword: String = ""
-//
-//            lifecycle.coroutineScope.launch {
-//               nursePassword = db.hospitalDao().getNursePassword(nurseIdInput.text.toString()).collect().toString()
-//            }
-//
-//
-
-//
-//        val btnCreateNew: Button = findViewById<View>(R.id.btnCreate) as Button
-//        btnCreateNew.setOnClickListener {
-//            val intent = Intent(this, NewNurseActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
 }

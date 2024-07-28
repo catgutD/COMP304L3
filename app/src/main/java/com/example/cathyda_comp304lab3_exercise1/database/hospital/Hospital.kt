@@ -95,6 +95,7 @@ data class PatientListModel(
 )
 
 data class TestListModel(
+    @ColumnInfo("test_id") val testId: Int,
     @ColumnInfo("patient_first_name") val patientFirstName: String,
     @ColumnInfo("patient_last_name") val patientLastName: String,
     @ColumnInfo("nurse_first_name") val nurseFirstName: String,
