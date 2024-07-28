@@ -9,7 +9,7 @@ import androidx.room.Relation
 
 @Entity(tableName = "patient")
 data class PatientEntity(
-    @PrimaryKey val patientId: Int,
+    @PrimaryKey(autoGenerate = true) val patientId: Int = 1,
     @ColumnInfo("patient_first_name") val firstName: String,
     @ColumnInfo("patient_last_name") val lastName: String,
     @ColumnInfo("patient_department") val department: String,

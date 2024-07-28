@@ -16,7 +16,7 @@
             android:name=".UpdateInfoActivity"
             android:exported="true"/>
         <activity
-            android:name=".PatientActivity"
+            android:name=".PatientFragment"
             android:exported="true"/>
         <activity
             android:name=".TestActivity"
@@ -25,7 +25,7 @@
             android:name=".ViewTestInfoActivity"
             android:exported="true"/>
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginFragment"
             android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".NewNurseActivity"
+            android:name=".NewNurseFragment"
             android:exported="false"/>
     </application>
 

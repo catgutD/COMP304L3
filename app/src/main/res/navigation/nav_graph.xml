@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.cathyda_comp304lab3_exercise1.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_newNurseFragment"
+            app:destination="@id/newNurseFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_patientFragment"
+            app:destination="@id/patientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newNurseFragment"
+        android:name="com.example.cathyda_comp304lab3_exercise1.NewNurseFragment"
+        android:label="fragment_new_nurse"
+        tools:layout="@layout/fragment_new_nurse" >
+        <action
+            android:id="@+id/action_newNurseFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientFragment"
+        android:name="com.example.cathyda_comp304lab3_exercise1.PatientFragment"
+        android:label="fragment_patient"
+        tools:layout="@layout/fragment_patient" />
+</navigation>
