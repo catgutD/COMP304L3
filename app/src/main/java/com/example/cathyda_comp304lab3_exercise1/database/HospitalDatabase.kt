@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.cathyda_comp304lab3_exercise1.database.hospital.*
+import com.example.cathyda_comp304lab3_exercise1.database.hospital.HospitalDao
+import com.example.cathyda_comp304lab3_exercise1.database.hospital.NurseEntity
+import com.example.cathyda_comp304lab3_exercise1.database.hospital.PatientEntity
+import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestEntity
 
 @Database(entities = [PatientEntity::class, NurseEntity::class, TestEntity::class], version = 1)
 abstract class HospitalDatabase: RoomDatabase() {

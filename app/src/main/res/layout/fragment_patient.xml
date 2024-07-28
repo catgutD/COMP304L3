@@ -10,7 +10,9 @@
         android:id="@+id/recyclerView"
         android:layout_width="408dp"
         android:layout_height="675dp"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frgNewPatient"
@@ -19,9 +21,10 @@
         android:layout_height="340dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.995"
-        tools:layout_editor_absoluteX="0dp"
         tools:visibility="invisible" />
 
     <Button

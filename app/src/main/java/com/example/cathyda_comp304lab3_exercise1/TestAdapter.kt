@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestEntity
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestListModel
 import com.example.cathyda_comp304lab3_exercise1.databinding.TestBinding
 
