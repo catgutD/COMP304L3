@@ -55,7 +55,7 @@ class PatientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = binding.recyclerView
+        recyclerView = binding.recyclerViewPatient
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val patientAdapter = PatientAdapter({
            val action = PatientFragmentDirections
@@ -74,7 +74,7 @@ class PatientFragment : Fragment() {
         }
 
         childFragmentManager.beginTransaction()
-            .replace(R.id.frgNewPatient, NewPatientFragment(nurseId))
+            .replace(binding.frgNewPatient.id, NewPatientFragment(nurseId))
             .commit()
 
         binding.btnNewPatient.setOnClickListener {

@@ -1,11 +1,9 @@
 package com.example.cathyda_comp304lab3_exercise1.database.hospital
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import androidx.room.Relation
 
 @Entity(tableName = "patient")
 data class PatientEntity(
@@ -19,7 +17,7 @@ data class PatientEntity(
 
 @Entity(tableName = "test")
 data class TestEntity(
-    @PrimaryKey(autoGenerate = true) val testId: Int = 1,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo("test_id") val testId: Int = 1,
     @ColumnInfo("test_patient_id") val patientId: Int,
     @ColumnInfo("test_nurse_id") val nurseId: String,
     @ColumnInfo("BPL") val BPL: Int,
@@ -56,34 +54,6 @@ data class NurseEntity(
             onUpdate = ForeignKey.CASCADE
         )
     ]
-)
-
-//Embedding for efficient querying
-data class NurseForPatient(
-    @Embedded val nurseEntity: NurseEntity,
-    @Relation(
-        parentColumn = "nurseId",
-        entityColumn = "nurseId"
-    )
-    val patientEntity: List<PatientEntity>
-)
-
-data class NurseForTest(
-    @Embedded val nurseEntity: NurseEntity,
-    @Relation(
-        parentColumn = "nurseId",
-        entityColumn = "nurseId"
-    )
-    val testEntity: List<TestEntity>
-)
-
-data class PatientForTest(
-    @Embedded val patientEntity: PatientEntity,
-    @Relation(
-        parentColumn = "patientId",
-        entityColumn = "patientId"
-    )
-    val testEntity: List<TestEntity>
 )
 
 //Subset tables for subset queries

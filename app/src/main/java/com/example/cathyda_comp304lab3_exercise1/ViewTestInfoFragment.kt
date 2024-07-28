@@ -64,7 +64,7 @@ class ViewTestInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = binding.recyclerView
+        recyclerView = binding.recyclerViewTest
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val testAdapter = TestAdapter(testInfo)
         recyclerView.adapter = testAdapter

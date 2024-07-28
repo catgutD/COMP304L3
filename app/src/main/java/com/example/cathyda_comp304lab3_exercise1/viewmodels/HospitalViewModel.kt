@@ -2,7 +2,6 @@ package com.example.cathyda_comp304lab3_exercise1.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.HospitalDao
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.NurseEntity
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.NurseListModel
@@ -11,7 +10,6 @@ import com.example.cathyda_comp304lab3_exercise1.database.hospital.PatientListMo
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestEntity
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestListModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 
 class HospitalViewModel(private val hospitalDao: HospitalDao): ViewModel() {
 
@@ -25,21 +23,14 @@ class HospitalViewModel(private val hospitalDao: HospitalDao): ViewModel() {
 
     fun nurseForPatient(patientId: Int): Flow<NurseEntity> = hospitalDao.getNurseForPatient(patientId)
 
-    fun insertPatient(patientEntity: PatientEntity) = viewModelScope.launch {
-        hospitalDao.insertNewPatient(patientEntity)
-    }
+    fun insertPatient(patientEntity: PatientEntity) = hospitalDao.insertNewPatient(patientEntity)
 
-    fun insertTest(testEntity: TestEntity) = viewModelScope.launch {
-        hospitalDao.insertNewTest(testEntity)
-    }
+    fun insertTest(testEntity: TestEntity) = hospitalDao.insertNewTest(testEntity)
 
-    fun insertNurse(nurseEntity: NurseEntity) = viewModelScope.launch {
-        hospitalDao.insertNewNurse(nurseEntity)
-    }
+    fun insertNurse(nurseEntity: NurseEntity) = hospitalDao.insertNewNurse(nurseEntity)
 
-    fun updatePatient(patientEntity: PatientEntity) = viewModelScope.launch {
-        hospitalDao.updatePatient(patientEntity)
-    }
+    fun updatePatient(patientEntity: PatientEntity) = hospitalDao.updatePatient(patientEntity)
+
 }
 
 class HospitalViewModelFactory(

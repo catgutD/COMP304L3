@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.PatientEntity
 import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentNewPatientBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
+import kotlinx.coroutines.launch
 
 class NewPatientFragment(nurseID: String) : Fragment() {
 
@@ -45,10 +47,11 @@ class NewPatientFragment(nurseID: String) : Fragment() {
                 department = binding.txtInputNewDepartment.text.toString(),
                 nurseId = nurseId
             )
-            viewModel.insertPatient(patient)
-            requireActivity().findViewById<View>(R.id.frgNewPatient).visibility = View.INVISIBLE
-            requireActivity().findViewById<View>(R.id.btnNewPatient).visibility = View.VISIBLE
-
+            lifecycle.coroutineScope.launch {
+                viewModel.insertPatient(patient)
+            }
+            requireParentFragment().view?.findViewById<View?>(R.id.frgNewPatient)?.visibility = View.INVISIBLE
+            requireParentFragment().view?.findViewById<View?>(R.id.btnNewPatient)?.visibility = View.VISIBLE
         }
     }
 

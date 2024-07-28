@@ -53,26 +53,6 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/rowNewNurseName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtNewNurseName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nurse_name_text" />
-
-            <EditText
-                android:id="@+id/txtInputNewNurseName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
-        </TableRow>
-
-        <TableRow
             android:id="@+id/rowNewRoom"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

@@ -42,7 +42,7 @@
         android:name="com.example.cathyda_comp304lab3_exercise1.UpdateInfoFragment"
         android:label="UpdateInfoFragment" >
         <argument android:name="patientId"
-            app:argType="Int"/>
+            app:argType="integer"/>
         <argument
             android:name="nurseId"
             app:argType="string" />

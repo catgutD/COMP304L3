@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -44,7 +43,7 @@ class LoginFragment : Fragment() {
 
             lifecycle.coroutineScope.launch {
                 viewModel.checkNursePassword(binding.txtInputUserId.text.toString()).collect {
-                    nursePassword = it.toString()
+                    nursePassword = it.password
                 }
             }
             if(nursePassword == binding.txtInputPassword.text.toString()) {
@@ -59,8 +58,7 @@ class LoginFragment : Fragment() {
                     .show()
             }
 
-            val btnCreateNew: Button = view.findViewById(R.id.btnCreate)
-            btnCreateNew.setOnClickListener {
+            binding.btnCreate.setOnClickListener {
                 val action = LoginFragmentDirections
                     .actionLoginFragmentToNewNurseFragment()
                 view.findNavController().navigate(action)

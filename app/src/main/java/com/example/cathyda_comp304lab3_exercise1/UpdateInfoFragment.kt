@@ -62,7 +62,7 @@ class UpdateInfoFragment : Fragment() {
                 binding.txtInputUpdatePatientFirstName.setText(it.firstName)
                 binding.txtInputUpdatePatientLastName.setText(it.lastName)
                 it.room?.let { it1 -> binding.txtInputUpdateRoom.setText(it1) }
-                it.department?.let { dep -> binding.txtUpdateDepartment.text = dep }
+                it.department?.let { dep -> binding.txtInputUpdateDepartment.setText(dep) }
             }
             viewModel.nurseForPatient(patientId).collect {
                 binding.txtInputUpdateNurseName.setText("${it.firstName} ${it.lastName}")
@@ -96,7 +96,9 @@ class UpdateInfoFragment : Fragment() {
                 nurseId,
                 binding.txtInputUpdateRoom.text.toString().toInt()
             )
-            viewModel.updatePatient(patient)
+            lifecycle.coroutineScope.launch {
+                viewModel.updatePatient(patient)
+            }
 
             binding.btnSave.visibility = View.GONE
             binding.btnUpdate.visibility = View.VISIBLE

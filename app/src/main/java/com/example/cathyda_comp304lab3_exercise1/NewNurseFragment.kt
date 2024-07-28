@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.NurseEntity
 import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentNewNurseBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
+import kotlinx.coroutines.launch
 
 class NewNurseFragment : Fragment() {
 
@@ -42,10 +44,12 @@ class NewNurseFragment : Fragment() {
                 binding.txtInputNurseID.text.toString(),
                 binding.txtInputNewNurseFirstName.text.toString(),
                 binding.txtInputNewNurseLastName.text.toString(),
-                binding.txtNewNurseDepartment.text.toString(),
+                binding.txtInputNewNurseDepartment.text.toString(),
                 binding.txtInputNewNursePassword.text.toString()
             )
-            viewModel.insertNurse(nurse)
+            lifecycle.coroutineScope.launch {
+                viewModel.insertNurse(nurse)
+            }
             val action = NewNurseFragmentDirections
                 .actionNewNurseFragmentToLoginFragment()
             view.findNavController().navigate(action)

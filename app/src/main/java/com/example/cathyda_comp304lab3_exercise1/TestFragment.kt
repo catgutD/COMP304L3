@@ -79,7 +79,9 @@ class TestFragment : Fragment() {
                 BPM = binding.txtInputBPM.text.toString().toInt(),
                 oxygenSaturationLevel = binding.txtInputOxygenSaturationLevel.text.toString().toInt()
             )
-            viewModel.insertTest(test)
+            lifecycle.coroutineScope.launch {
+                viewModel.insertTest(test)
+            }
 
             val action = TestFragmentDirections
                 .actionTestFragmentToViewTestInfoFragment(

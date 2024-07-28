@@ -15,7 +15,7 @@ interface HospitalDao {
             "WHERE patientId = :patientId")
     fun getPatientInfo(patientId: Int): Flow<PatientListModel>
 
-    @Query("SELECT tst.testId, " +
+    @Query("SELECT tst.test_id, " +
             "pat.patient_first_name, " +
             "pat.patient_last_name, " +
             "nrs.nurse_first_name, " +
