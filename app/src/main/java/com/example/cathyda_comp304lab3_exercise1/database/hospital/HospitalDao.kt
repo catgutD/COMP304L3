@@ -36,8 +36,8 @@ interface HospitalDao {
     @Query("SELECT * FROM patient WHERE patient_nurse_id = :nurseId")
     fun getPatientName(nurseId: String): Flow<List<PatientEntity>>
 
-    @Query("SELECT nurse_password FROM nurse WHERE nurseId = :nurseId")
-    fun getNursePassword(nurseId: String): Flow<NurseListModel>
+    @Query("SELECT * FROM nurse")
+    fun getNurses(): Flow<List<NurseEntity>>
 
     @Query("SELECT nurse.* FROM nurse INNER JOIN patient on nurse.nurseId = patient_nurse_id WHERE patientId = :patientId")
     fun getNurseForPatient(patientId: Int): Flow<NurseEntity>

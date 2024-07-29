@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
+import com.example.cathyda_comp304lab3_exercise1.database.HospitalDatabase
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.TestEntity
 import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentTestBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
@@ -79,8 +82,10 @@ class TestFragment : Fragment() {
                 BPM = binding.txtInputBPM.text.toString().toInt(),
                 oxygenSaturationLevel = binding.txtInputOxygenSaturationLevel.text.toString().toInt()
             )
-            lifecycle.coroutineScope.launch {
-                viewModel.insertTest(test)
+
+            CoroutineScope(IO).launch {
+                val db = context?.let { it1 -> HospitalDatabase.getDatabase(it1) }
+                db?.hospitalDao()?.insertNewTest(test)
             }
 
             val action = TestFragmentDirections

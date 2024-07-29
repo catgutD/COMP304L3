@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.findNavController
+import com.example.cathyda_comp304lab3_exercise1.database.HospitalDatabase
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.PatientEntity
 import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentUpdateInfoBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
 
@@ -96,8 +99,9 @@ class UpdateInfoFragment : Fragment() {
                 nurseId,
                 binding.txtInputUpdateRoom.text.toString().toInt()
             )
-            lifecycle.coroutineScope.launch {
-                viewModel.updatePatient(patient)
+            CoroutineScope(IO).launch {
+                val db = context?.let { it1 -> HospitalDatabase.getDatabase(it1) }
+                db?.hospitalDao()?.updatePatient(patient)
             }
 
             binding.btnSave.visibility = View.GONE

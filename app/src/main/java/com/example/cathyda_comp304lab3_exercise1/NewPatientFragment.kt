@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.coroutineScope
+import com.example.cathyda_comp304lab3_exercise1.database.HospitalDatabase
 import com.example.cathyda_comp304lab3_exercise1.database.hospital.PatientEntity
 import com.example.cathyda_comp304lab3_exercise1.databinding.FragmentNewPatientBinding
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModel
 import com.example.cathyda_comp304lab3_exercise1.viewmodels.HospitalViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
 class NewPatientFragment(nurseID: String) : Fragment() {
@@ -19,12 +22,6 @@ class NewPatientFragment(nurseID: String) : Fragment() {
     private val binding get() = _binding!!
 
     private val nurseId: String = nurseID
-
-    private val viewModel: HospitalViewModel by activityViewModels {
-        HospitalViewModelFactory(
-            (activity?.application as HospitalApplication).database.hospitalDao()
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,9 +44,12 @@ class NewPatientFragment(nurseID: String) : Fragment() {
                 department = binding.txtInputNewDepartment.text.toString(),
                 nurseId = nurseId
             )
-            lifecycle.coroutineScope.launch {
-                viewModel.insertPatient(patient)
+
+            CoroutineScope(IO).launch {
+                val db = context?.let { it1 -> HospitalDatabase.getDatabase(it1) }
+                db?.hospitalDao()?.insertNewPatient(patient)
             }
+
             requireParentFragment().view?.findViewById<View?>(R.id.frgNewPatient)?.visibility = View.INVISIBLE
             requireParentFragment().view?.findViewById<View?>(R.id.btnNewPatient)?.visibility = View.VISIBLE
         }
